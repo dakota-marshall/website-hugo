@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 09 Aug 2021 19:13:27 -0400</lastBuildDate><atom:link href="http://dakotamarshall.net/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About Me</title>
+      <link>http://dakotamarshall.net/about-me/</link>
+      <pubDate>Tue, 10 Aug 2021 11:40:19 -0400</pubDate>
+      
+      <guid>http://dakotamarshall.net/about-me/</guid>
+      <description>I am a 22-year-old Linux Enthusiast that is currently working as a Project Engineer, Service and Support Team Lead, and Systems Engineer at Vercom Systems. My background is in Network Engineering and Service and Support, which has laid the foundation for my career. Driven by my desire to learn about anything and everything I can about technology, I seek to implement what I learn to gain a better understanding of it.</description>
+    </item>
+    
+    <item>
       <title>Hello World</title>
       <link>http://dakotamarshall.net/posts/hello-world/</link>
       <pubDate>Mon, 09 Aug 2021 19:13:27 -0400</pubDate>
