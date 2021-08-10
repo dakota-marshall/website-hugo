@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Dakota Marshall"
 theme = "hello-friend-ng"
 paginate = 10
+copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -48,6 +49,10 @@ paginate = 10
   name = "github"
   url = "https://github.com/dakota-marshall"
 
+[params.footer]
+copyright = true
+rss = true
+
 [languages]
   [languages.en]
 
@@ -71,3 +76,4 @@ paginate = 10
     identifier = "About Me"
     name       = "About Me"
     url        = "/about-me"
+
