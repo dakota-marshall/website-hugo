@@ -11,7 +11,7 @@ paginate = 10
   dateformNumTime = "2006-01-02 15:04 -0700"
 
   # Subtitle for home
-  homeSubtitle = "Insert Catchy Tagline Here"
+  homeSubtitle = "RHCSA || Linux Admin || Network Engineer"
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false
@@ -27,6 +27,18 @@ paginate = 10
 [[params.social]]
   name = "keybase"
   url = "https://keybase.io/dmarshall549"
+
+[[params.social]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/dakotamarshall549/"
+
+[[params.social]]
+  name = "email"
+  url = "mailto:me@dakotamarshall.net"
+
+[[params.social]]
+  name = "github"
+  url = "https://github.com/dakota-marshall"
 
 [languages]
   [languages.en]
