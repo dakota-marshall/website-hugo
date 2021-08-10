@@ -24,6 +24,14 @@ paginate = 10
   # Default theme "light" or "dark"
   defaultTheme = "dark"
 
+  # Enable theme toggle
+  # 
+  # This options enables the theme toggle for the theme. 
+  # Per default, this option is off. 
+  # The theme is respecting the prefers-color-scheme of the operating systeme. 
+  # With this option on, the page user is able to set the scheme he wants. 
+  enableThemeToggle = false
+
 [[params.social]]
   name = "keybase"
   url = "https://keybase.io/dmarshall549"
