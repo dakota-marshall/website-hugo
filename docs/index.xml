@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dakota Marshall</title>
-    <link>http://daktoamarshall.net/</link>
+    <link>http://dakotamarshall.net/</link>
     <description>Recent content on Dakota Marshall</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Aug 2021 19:13:27 -0400</lastBuildDate><atom:link href="http://daktoamarshall.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Aug 2021 19:13:27 -0400</lastBuildDate><atom:link href="http://dakotamarshall.net/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello World</title>
-      <link>http://daktoamarshall.net/posts/hello-world/</link>
+      <link>http://dakotamarshall.net/posts/hello-world/</link>
       <pubDate>Mon, 09 Aug 2021 19:13:27 -0400</pubDate>
       
-      <guid>http://daktoamarshall.net/posts/hello-world/</guid>
+      <guid>http://dakotamarshall.net/posts/hello-world/</guid>
       <description>Hello and welcome! This is where I post my articles and projects that I find interesting enough to share professionally. Should you find anything here useful, feel free to let me know!</description>
     </item>
     

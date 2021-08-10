@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Dakota Marshall</title>
-    <link>http://daktoamarshall.net/blog/</link>
+    <link>http://dakotamarshall.net/blog/</link>
     <description>Recent content in Blog on Dakota Marshall</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://daktoamarshall.net/blog/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="http://dakotamarshall.net/blog/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
