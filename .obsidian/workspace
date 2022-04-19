@@ -1,0 +1,102 @@
+{
+  "main": {
+    "id": "95b33fba95ed9c04",
+    "type": "split",
+    "children": [
+      {
+        "id": "f05e71eaef6db735",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "content/posts/Creating A CI-CD Workflow With Gitlab and Portainer.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "44c6341089bde781",
+    "type": "split",
+    "children": [
+      {
+        "id": "0c1347f2b92afc44",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "732b011e6697ee7e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "1bf3094617c571d7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "100b6983edea4f4c",
+    "type": "split",
+    "children": [
+      {
+        "id": "d43571ab405551d7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f41ad2975ce0ccb2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "content/posts/Creating A CI-CD Workflow With Gitlab and Portainer.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "f05e71eaef6db735",
+  "lastOpenFiles": [
+    "content/posts/Creating A CI-CD Workflow With Gitlab and Portainer.md",
+    "content/about-me.md",
+    "content/posts/hello-world.md",
+    "layouts/shortcodes/toc.html.md",
+    "docs/img/gitlab.png",
+    "docs/img/portainer.png",
+    "README.md",
+    "resources/_gen/images/gitlab.png",
+    "resources/_gen/images/portainer.png",
+    "archetypes/default.md"
+  ]
+}

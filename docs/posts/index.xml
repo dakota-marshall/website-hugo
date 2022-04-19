@@ -5,9 +5,24 @@
         <description>Recent content in Posts on Dakota Marshall</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <copyright>This work is licensed under a CC BY-NC-SA 4.0 International License.</copyright>
-        <lastBuildDate>Mon, 09 Aug 2021 19:13:27 -0400</lastBuildDate>
+        <copyright>Copyright 2021</copyright>
+        <lastBuildDate>Mon, 18 Apr 2022 11:40:19 -0400</lastBuildDate>
         <atom:link href="http://dakotamarshall.net/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Creating A CI/CD Workflow With Gitlab and Portainer</title>
+            <link>http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/</link>
+            <pubDate>Mon, 18 Apr 2022 11:40:19 -0400</pubDate>
+            
+            <guid>http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/</guid>
+            <description>Creating A CI/CD Workflow With Gitlab and Portainer Overview I&amp;rsquo;ve been trying to look for good ways to automate the deployment / updates of docker containers, while keeping the simplicity of writing docker-compose files, for quite awhile. I started off trying to implement this via Ansible and AWX, as thats the automation platform I use for a lot of my other homelab configuration, but it does not really seem designed to do that sort of thing.</description>
+            <content type="html"><![CDATA[<h1 id="creating-a-cicd-workflow-with-gitlab-and-portainer">Creating A CI/CD Workflow With Gitlab and Portainer</h1>
+<p><img src="/static/img/portainer.png" alt="portainer.png"> <img src="/static/img/gitlab.png" alt="gitlab.png"></p>
+<h2 id="overview">Overview</h2>
+<p>I&rsquo;ve been trying to look for good ways to automate the deployment / updates of docker containers, while keeping the simplicity of writing docker-compose files, for quite awhile. I started off trying to implement this via Ansible and <a href="https://github.com/ansible/awx">AWX</a>, as thats the automation platform I use for a lot of my other homelab configuration, but it does not really seem designed to do that sort of thing. The docker module in Ansible allows for the deployment of containers, but will only accept its own type of <code>yml</code> config. I already had a bunch of docker-compose files, so that was a no go.</p>
+<p>Then I had the idea to go full bore and try and migrate everything over to Kubernetes using Rancher. While this isnt a bad idea, and definitely something I want to shoot for in the future, it was <em>way</em> more complicated than what I was looking for at the time. I was looking for something simple, and able to use what configuration I already had to manage it. I was getting to the point where I thought I would have to build an application to deploy docker-compose files over the Docker API using the TCP socket.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Hello World</title>
@@ -15,9 +30,8 @@
             <pubDate>Mon, 09 Aug 2021 19:13:27 -0400</pubDate>
             
             <guid>http://dakotamarshall.net/posts/hello-world/</guid>
-            <description>Hello and welcome! This is where I post my articles and projects that I find interesting enough to share professionally. Should you find anything here useful, feel free to let me know!</description>
-            <content type="html"><![CDATA[<p>Hello and welcome! This is where I post my articles and projects that I find interesting enough to share professionally. Should you find anything here useful, feel free to let me know!</p>
-]]></content>
+            <description></description>
+            <content type="html"><![CDATA[]]></content>
         </item>
         
     </channel>

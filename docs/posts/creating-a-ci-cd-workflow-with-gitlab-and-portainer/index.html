@@ -5,16 +5,16 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
-<meta name="description" content="" />
-<meta name="keywords" content="homepage, blog, intro" />
+<meta name="description" content="Creating A CI/CD Workflow With Gitlab and Portainer Overview I&amp;rsquo;ve been trying to look for good ways to automate the deployment / updates of docker containers, while keeping the simplicity of writing docker-compose files, for quite awhile. I started off trying to implement this via Ansible and AWX, as thats the automation platform I use for a lot of my other homelab configuration, but it does not really seem designed to do that sort of thing." />
+<meta name="keywords" content="homepage, blog" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="http://dakotamarshall.net/posts/hello-world/" />
+<link rel="canonical" href="http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/" />
 
 
     <title>
         
-            Hello World :: Dakota Marshall 
+            Creating A CI/CD Workflow With Gitlab and Portainer :: Dakota Marshall 
         
     </title>
 
@@ -32,26 +32,26 @@
 
 
 
-<meta itemprop="name" content="Hello World">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-08-09T19:13:27-04:00" />
-<meta itemprop="dateModified" content="2021-08-09T19:13:27-04:00" />
-<meta itemprop="wordCount" content="0"><meta itemprop="image" content="http://dakotamarshall.net/"/>
-<meta itemprop="keywords" content="intro," />
+<meta itemprop="name" content="Creating A CI/CD Workflow With Gitlab and Portainer">
+<meta itemprop="description" content="Creating A CI/CD Workflow With Gitlab and Portainer Overview I&rsquo;ve been trying to look for good ways to automate the deployment / updates of docker containers, while keeping the simplicity of writing docker-compose files, for quite awhile. I started off trying to implement this via Ansible and AWX, as thats the automation platform I use for a lot of my other homelab configuration, but it does not really seem designed to do that sort of thing."><meta itemprop="datePublished" content="2022-04-18T11:40:19-04:00" />
+<meta itemprop="dateModified" content="2022-04-18T11:40:19-04:00" />
+<meta itemprop="wordCount" content="207"><meta itemprop="image" content="http://dakotamarshall.net/"/>
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://dakotamarshall.net/"/>
 
-<meta name="twitter:title" content="Hello World"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Creating A CI/CD Workflow With Gitlab and Portainer"/>
+<meta name="twitter:description" content="Creating A CI/CD Workflow With Gitlab and Portainer Overview I&rsquo;ve been trying to look for good ways to automate the deployment / updates of docker containers, while keeping the simplicity of writing docker-compose files, for quite awhile. I started off trying to implement this via Ansible and AWX, as thats the automation platform I use for a lot of my other homelab configuration, but it does not really seem designed to do that sort of thing."/>
 
 
 
 
-    <meta property="og:title" content="Hello World" />
-<meta property="og:description" content="" />
+    <meta property="og:title" content="Creating A CI/CD Workflow With Gitlab and Portainer" />
+<meta property="og:description" content="Creating A CI/CD Workflow With Gitlab and Portainer Overview I&rsquo;ve been trying to look for good ways to automate the deployment / updates of docker containers, while keeping the simplicity of writing docker-compose files, for quite awhile. I started off trying to implement this via Ansible and AWX, as thats the automation platform I use for a lot of my other homelab configuration, but it does not really seem designed to do that sort of thing." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://dakotamarshall.net/posts/hello-world/" /><meta property="og:image" content="http://dakotamarshall.net/"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-08-09T19:13:27-04:00" />
-<meta property="article:modified_time" content="2021-08-09T19:13:27-04:00" />
+<meta property="og:url" content="http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/" /><meta property="og:image" content="http://dakotamarshall.net/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-18T11:40:19-04:00" />
+<meta property="article:modified_time" content="2022-04-18T11:40:19-04:00" />
 
 
 
@@ -59,7 +59,7 @@
 
 
 
-    <meta property="article:published_time" content="2021-08-09 19:13:27 -0400 EDT" />
+    <meta property="article:published_time" content="2022-04-18 11:40:19 -0400 EDT" />
 
 
 
@@ -128,7 +128,7 @@
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        0 minutes
+        One minute
 
         
       </p>
@@ -136,7 +136,7 @@
 
     <article>
       <h1 class="post-title">
-        <a href="http://dakotamarshall.net/posts/hello-world/">Hello World</a>
+        <a href="http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/">Creating A CI/CD Workflow With Gitlab and Portainer</a>
       </h1>
 
       
@@ -146,7 +146,12 @@
       
 
       <div class="post-content">
-        
+        <h1 id="creating-a-cicd-workflow-with-gitlab-and-portainer">Creating A CI/CD Workflow With Gitlab and Portainer</h1>
+<p><img src="/static/img/portainer.png" alt="portainer.png"> <img src="/static/img/gitlab.png" alt="gitlab.png"></p>
+<h2 id="overview">Overview</h2>
+<p>I&rsquo;ve been trying to look for good ways to automate the deployment / updates of docker containers, while keeping the simplicity of writing docker-compose files, for quite awhile. I started off trying to implement this via Ansible and <a href="https://github.com/ansible/awx">AWX</a>, as thats the automation platform I use for a lot of my other homelab configuration, but it does not really seem designed to do that sort of thing. The docker module in Ansible allows for the deployment of containers, but will only accept its own type of <code>yml</code> config. I already had a bunch of docker-compose files, so that was a no go.</p>
+<p>Then I had the idea to go full bore and try and migrate everything over to Kubernetes using Rancher. While this isnt a bad idea, and definitely something I want to shoot for in the future, it was <em>way</em> more complicated than what I was looking for at the time. I was looking for something simple, and able to use what configuration I already had to manage it. I was getting to the point where I thought I would have to build an application to deploy docker-compose files over the Docker API using the TCP socket.</p>
+
       </div>
     </article>
 
@@ -154,13 +159,6 @@
 
     <div class="post-info">
       
-    <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
-
-        <span class="tag"><a href="http://dakotamarshall.net/tags/intro/">intro</a></span>
-        
-    </p>
-
       
 
       <p>
@@ -171,7 +169,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        0 Words
+        207 Words
       </p>
 
       <p>
@@ -182,7 +180,7 @@
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2021-08-09 19:13 -0400
+          2022-04-18 11:40 -0400
         
 
          
@@ -200,14 +198,14 @@
 
         <div class="pagination__buttons">
             
-            <span class="button previous">
-                <a href="http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/">
-                    <span class="button__icon">←</span>
-                    <span class="button__text">Creating A CI/CD Workflow With Gitlab and Portainer</span>
+
+            
+            <span class="button next">
+                <a href="http://dakotamarshall.net/posts/hello-world/">
+                    <span class="button__text">Hello World</span>
+                    <span class="button__icon">→</span>
                 </a>
             </span>
-            
-
             
         </div>
     </div>
