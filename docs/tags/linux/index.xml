@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dakota Marshall</title>
-    <link>http://dakotamarshall.net/</link>
-    <description>Recent content on Dakota Marshall</description>
+    <title>linux on Dakota Marshall</title>
+    <link>http://dakotamarshall.net/tags/linux/</link>
+    <description>Recent content in linux on Dakota Marshall</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2021</copyright>
-    <lastBuildDate>Mon, 18 Apr 2022 09:29:19 -0400</lastBuildDate><atom:link href="http://dakotamarshall.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Apr 2022 09:29:19 -0400</lastBuildDate><atom:link href="http://dakotamarshall.net/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating A CI/CD Workflow With Gitlab and Portainer</title>
       <link>http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/</link>
@@ -15,16 +15,6 @@
       
       <guid>http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/</guid>
       <description>Table Of Contents  Backstory Overview Setting Everything Up  Install Portainer Connecting Additional Docker Hosts Setting up a Portainer Stack Setup GitLab Webhooks   Wrapping Up     Backstory Docker is awesome. It allows for easy deployment of apps that I or others have made. Docker Compose makes the deployment of container stacks even easier by allowing you to control the containers via a YAML file.</description>
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>http://dakotamarshall.net/about-me/</link>
-      <pubDate>Tue, 10 Aug 2021 11:40:19 -0400</pubDate>
-      
-      <guid>http://dakotamarshall.net/about-me/</guid>
-      <description>I&amp;rsquo;m a Linux Enthusiast that is currently working as a Systems Administrator at Datayard. I&amp;rsquo;ve been using and tinkering with Linux for around 5 years at this point, both professionally and in my free time.
-Over the past few years, I have been growing and fine-tuning a home lab I use as a means of learning new things and experimenting with technology that interests me. I consider it an invaluable tool and has accounted for a large portion of my interest and technical ability.</description>
     </item>
     
     <item>

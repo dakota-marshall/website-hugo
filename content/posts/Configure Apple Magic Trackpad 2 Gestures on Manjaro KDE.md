@@ -14,7 +14,7 @@ tags:
 
 ### Intro  
   
-I haven't seen any full-length tutorials for getting the Apple Magic Trackpad 2, or really any multi-touch track-pad, working in Manjaro, or more specifically KDE, yet so I figured I'd write down how I did it. Most of the info I got was from the libinput-gestures [Github page](https://github.com/bulletmark/libinput-gestures) if you would like to check it out. The device works out of the box with left, right, and middle-click as well as 2 finger scrolling. But to get the rest of the features you need to set a few things up. YMMV on whether or not everything in this works for you.  
+I haven't seen any full-length tutorials for getting the Apple Magic Trackpad 2, or really any multi-touch track-pad, working in Manjaro, or more specifically KDE, yet. So I figured I'd write down how I did it. Most of the info I got was from the libinput-gestures [Github page](https://github.com/bulletmark/libinput-gestures) if you would like to check it out. The device works out of the box with left, right, and middle-click as well as 2 finger scrolling. But to get the rest of the features you need to set a few things up. YMMV on whether or not everything in this works for you.  
   
 ---  
   

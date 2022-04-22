@@ -89,14 +89,14 @@
   "active": "f05e71eaef6db735",
   "lastOpenFiles": [
     "content/posts/Creating A CI-CD Workflow With Gitlab and Portainer.md",
+    "content/posts/Configure Apple Magic Trackpad 2 Gestures on Manjaro KDE.md",
     "content/about-me.md",
     "content/posts/hello-world.md",
+    "Pasted image 20220421195910.png",
     "layouts/shortcodes/toc.html.md",
     "docs/img/gitlab.png",
     "docs/img/portainer.png",
     "README.md",
-    "resources/_gen/images/gitlab.png",
-    "resources/_gen/images/portainer.png",
-    "archetypes/default.md"
+    "resources/_gen/images/gitlab.png"
   ]
 }

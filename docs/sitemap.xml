@@ -2,26 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://dakotamarshall.net/tags/cicd/</loc>
+    <lastmod>2022-04-18T09:29:19-04:00</lastmod>
+  </url><url>
     <loc>http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/</loc>
-    <lastmod>2022-04-18T11:40:19-04:00</lastmod>
+    <lastmod>2022-04-18T09:29:19-04:00</lastmod>
   </url><url>
     <loc>http://dakotamarshall.net/</loc>
-    <lastmod>2022-04-18T11:40:19-04:00</lastmod>
+    <lastmod>2022-04-18T09:29:19-04:00</lastmod>
+  </url><url>
+    <loc>http://dakotamarshall.net/tags/docker/</loc>
+    <lastmod>2022-04-18T09:29:19-04:00</lastmod>
+  </url><url>
+    <loc>http://dakotamarshall.net/tags/gitlab/</loc>
+    <lastmod>2022-04-18T09:29:19-04:00</lastmod>
+  </url><url>
+    <loc>http://dakotamarshall.net/tags/linux/</loc>
+    <lastmod>2022-04-18T09:29:19-04:00</lastmod>
+  </url><url>
+    <loc>http://dakotamarshall.net/tags/portainer/</loc>
+    <lastmod>2022-04-18T09:29:19-04:00</lastmod>
   </url><url>
     <loc>http://dakotamarshall.net/posts/</loc>
-    <lastmod>2022-04-18T11:40:19-04:00</lastmod>
+    <lastmod>2022-04-18T09:29:19-04:00</lastmod>
+  </url><url>
+    <loc>http://dakotamarshall.net/tags/</loc>
+    <lastmod>2022-04-18T09:29:19-04:00</lastmod>
   </url><url>
     <loc>http://dakotamarshall.net/about-me/</loc>
     <lastmod>2021-08-10T11:40:19-04:00</lastmod>
   </url><url>
-    <loc>http://dakotamarshall.net/posts/hello-world/</loc>
-    <lastmod>2021-08-09T19:13:27-04:00</lastmod>
+    <loc>http://dakotamarshall.net/tags/apple/</loc>
+    <lastmod>2020-06-10T12:12:00-04:00</lastmod>
   </url><url>
-    <loc>http://dakotamarshall.net/tags/intro/</loc>
-    <lastmod>2021-08-09T19:13:27-04:00</lastmod>
+    <loc>http://dakotamarshall.net/posts/configure-apple-magic-trackpad-2-gestures-on-manjaro-kde/</loc>
+    <lastmod>2020-06-10T12:12:00-04:00</lastmod>
   </url><url>
-    <loc>http://dakotamarshall.net/tags/</loc>
-    <lastmod>2021-08-09T19:13:27-04:00</lastmod>
+    <loc>http://dakotamarshall.net/tags/kde/</loc>
+    <lastmod>2020-06-10T12:12:00-04:00</lastmod>
+  </url><url>
+    <loc>http://dakotamarshall.net/tags/manjaro/</loc>
+    <lastmod>2020-06-10T12:12:00-04:00</lastmod>
   </url><url>
     <loc>http://dakotamarshall.net/blog/</loc>
   </url><url>
