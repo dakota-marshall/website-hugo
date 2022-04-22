@@ -6,14 +6,77 @@
     <description>Recent content in Tags on Dakota Marshall</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>This work is licensed under a CC BY-NC-SA 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 09 Aug 2021 19:13:27 -0400</lastBuildDate><atom:link href="http://dakotamarshall.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2021</copyright>
+    <lastBuildDate>Mon, 18 Apr 2022 09:29:19 -0400</lastBuildDate><atom:link href="http://dakotamarshall.net/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>intro</title>
-      <link>http://dakotamarshall.net/tags/intro/</link>
-      <pubDate>Mon, 09 Aug 2021 19:13:27 -0400</pubDate>
+      <title>cicd</title>
+      <link>http://dakotamarshall.net/tags/cicd/</link>
+      <pubDate>Mon, 18 Apr 2022 09:29:19 -0400</pubDate>
       
-      <guid>http://dakotamarshall.net/tags/intro/</guid>
+      <guid>http://dakotamarshall.net/tags/cicd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://dakotamarshall.net/tags/docker/</link>
+      <pubDate>Mon, 18 Apr 2022 09:29:19 -0400</pubDate>
+      
+      <guid>http://dakotamarshall.net/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab</title>
+      <link>http://dakotamarshall.net/tags/gitlab/</link>
+      <pubDate>Mon, 18 Apr 2022 09:29:19 -0400</pubDate>
+      
+      <guid>http://dakotamarshall.net/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://dakotamarshall.net/tags/linux/</link>
+      <pubDate>Mon, 18 Apr 2022 09:29:19 -0400</pubDate>
+      
+      <guid>http://dakotamarshall.net/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>portainer</title>
+      <link>http://dakotamarshall.net/tags/portainer/</link>
+      <pubDate>Mon, 18 Apr 2022 09:29:19 -0400</pubDate>
+      
+      <guid>http://dakotamarshall.net/tags/portainer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apple</title>
+      <link>http://dakotamarshall.net/tags/apple/</link>
+      <pubDate>Wed, 10 Jun 2020 12:12:00 -0400</pubDate>
+      
+      <guid>http://dakotamarshall.net/tags/apple/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kde</title>
+      <link>http://dakotamarshall.net/tags/kde/</link>
+      <pubDate>Wed, 10 Jun 2020 12:12:00 -0400</pubDate>
+      
+      <guid>http://dakotamarshall.net/tags/kde/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>manjaro</title>
+      <link>http://dakotamarshall.net/tags/manjaro/</link>
+      <pubDate>Wed, 10 Jun 2020 12:12:00 -0400</pubDate>
+      
+      <guid>http://dakotamarshall.net/tags/manjaro/</guid>
       <description></description>
     </item>
     

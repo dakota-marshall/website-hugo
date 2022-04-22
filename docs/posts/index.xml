@@ -5,18 +5,215 @@
         <description>Recent content in Posts on Dakota Marshall</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <copyright>This work is licensed under a CC BY-NC-SA 4.0 International License.</copyright>
-        <lastBuildDate>Mon, 09 Aug 2021 19:13:27 -0400</lastBuildDate>
+        <copyright>Copyright 2021</copyright>
+        <lastBuildDate>Mon, 18 Apr 2022 09:29:19 -0400</lastBuildDate>
         <atom:link href="http://dakotamarshall.net/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Hello World</title>
-            <link>http://dakotamarshall.net/posts/hello-world/</link>
-            <pubDate>Mon, 09 Aug 2021 19:13:27 -0400</pubDate>
+            <title>Creating A CI/CD Workflow With Gitlab and Portainer</title>
+            <link>http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/</link>
+            <pubDate>Mon, 18 Apr 2022 09:29:19 -0400</pubDate>
             
-            <guid>http://dakotamarshall.net/posts/hello-world/</guid>
-            <description>Hello and welcome! This is where I post my articles and projects that I find interesting enough to share professionally. Should you find anything here useful, feel free to let me know!</description>
-            <content type="html"><![CDATA[<p>Hello and welcome! This is where I post my articles and projects that I find interesting enough to share professionally. Should you find anything here useful, feel free to let me know!</p>
+            <guid>http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/</guid>
+            <description>Table Of Contents  Backstory Overview Setting Everything Up  Install Portainer Connecting Additional Docker Hosts Setting up a Portainer Stack Setup GitLab Webhooks   Wrapping Up     Backstory Docker is awesome. It allows for easy deployment of apps that I or others have made. Docker Compose makes the deployment of container stacks even easier by allowing you to control the containers via a YAML file.</description>
+            <content type="html"><![CDATA[<p><img src="/img/portainer.png" alt="portainer"></p>
+<hr>
+<div>
+    <h2>Table Of Contents</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#backstory">Backstory</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#setting-everything-up">Setting Everything Up</a>
+      <ul>
+        <li><a href="#install-portainer">Install Portainer</a></li>
+        <li><a href="#connecting-additional-docker-hosts">Connecting Additional Docker Hosts</a></li>
+        <li><a href="#setting-up-a-portainer-stack">Setting up a Portainer Stack</a></li>
+        <li><a href="#setup-gitlab-webhooks">Setup GitLab Webhooks</a></li>
+      </ul>
+    </li>
+    <li><a href="#wrapping-up">Wrapping Up</a></li>
+  </ul>
+</nav>
+</div>
+
+<hr>
+<h2 id="backstory">Backstory</h2>
+<p>Docker is awesome. It allows for easy deployment of apps that I or others have made. Docker Compose makes the deployment of container stacks even easier by allowing you to control the containers via a YAML file. This is all fantastic, but the thing that has always driven me mad is finding a way to deploy them via automation.</p>
+<p>For quite awhile, I&rsquo;ve been trying to look for good ways to automate the deployment and updates of Docker containers, while keeping the simplicity of writing docker-compose files. I started off trying to implement this via Ansible and <a href="https://github.com/ansible/awx">AWX</a>, as that is the automation platform I use for a lot of my other homelab configurations, but it does not really seem designed to do that sort of thing. The Docker module in Ansible allows for the deployment of containers, but will only accept its own type of <code>yml</code> config. I already had a bunch of docker-compose files, so that was a no go. </p>
+<p>Then I had the idea to go full bore and try and migrate everything over to Kubernetes using Rancher. While this isn&rsquo;t a bad idea, and definitely something I want to shoot for in the future, it was <em>way</em> more complicated than what I was looking for at the time. I was looking for something simple and was able to use what configuration I already had to manage it. I was getting to the point where I thought I would have to build an application to deploy docker-compose files over the Docker API using the TCP socket.</p>
+<p>Eventually, while I was talking with one of my co-workers about some other container related stuff he was working on, I remembered Portainer! I had used it when I first started learning about containers, and used it as an easy way to get docker containers up and running. But when I learned more about how Docker works, and especially once I learned about docker-compose, I kind of left it in the dust.</p>
+<p>I went ahead and had a look at what they had to offer in terms of deployment and CI/CD in general, and it was <em>exactly</em> what I was looking for.</p>
+<hr>
+<h2 id="overview">Overview</h2>
+<p><img src="/img/portainer-ci.png" alt="portainer-ci"></p>
+<p>Essentially, I can setup a git repo (in this case, I&rsquo;m using Gitlab) that holds the docker-compose file and any supporting config files to send a webhook call to Portainer whenever a push is made to the master branch. The webhook will trigger Portainer to pull the updated config files and re-deploy the stack. </p>
+<p>This workflow allows for plenty of CI testing inside of Gitlab using its runners to test images and config. For the time being, I won&rsquo;t be setting up that side, but will be sure to link to an update once I get this setup.</p>
+<p>Notes:
+    - I am assuming you have already written your docker-compose files and stored them in git.
+    - The same thing should work on Github, or any git server that supports webhooks, but in this case I am using Gitlab.
+    - Because I am using the SaaS version of Gitlab, I have to expose the Portainer service externally. I will be using Cloudflare for setup.</p>
+<hr>
+<h2 id="setting-everything-up">Setting Everything Up</h2>
+<h3 id="install-portainer">Install Portainer</h3>
+<p>First things first is to get Portainer installed and setup. Most of what I&rsquo;m about to say can be found in the <a href="https://docs.portainer.io">Portainer Docs</a>, and I would encourage you to go there to get the most up to date info on how to properly deploy it.</p>
+<p>With that, there is actually an important distinction that you should be aware of. Portainer offers two different versions of their product: Portainer Community Edition and Business Edition. For most people, Community Edition will likely be just fine, but some of the more advanced features (such as forcing a redeployment when Portainer pulls the new git config, which I need for this setup) are locked behind Business Edition. As of writing, Portainer offers <a href="https://www.portainer.io/pricing/take5?hsLang=en">5 Free Nodes</a> of Business Edition when you sign-up with a business email. So if you have a business you are using this for, sign-up and get the extra features! </p>
+<p>I deployed Portainer on my Docker host using the following command:</p>
+<pre tabindex="0"><code>
+docker run -d -p 8000:8000 -p 9000:9000 -p 9443:9443 --name portainer \
+
+--restart=always \
+
+-v /var/run/docker.sock:/var/run/docker.sock \
+
+-v ~/portainer/portainer-config:/data \
+
+portainer/portainer-ce
+</code></pre><p>It is very important that you give Portainer access to <code>/var/run/docker.sock</code>, this is how Portainer will communicate with the Docker API. Without it, you will be unable to manage containers properly. _Note that in doing so, you are giving Portainer administrative access to all of your other containers, but most importantly, can give access to the host system as the Docker daemon runs as root. While Portainer is probably trustworthy, use your best judgment when granting access to this socket. More information can be found [here] (<a href="https://raesene.github.io/blog/2016/03/06/The-Dangers-Of-Docker.sock/)">https://raesene.github.io/blog/2016/03/06/The-Dangers-Of-Docker.sock/)</a>.</p>
+<p>Once you run the docker command, Portainer should be reachable on port <code>9000</code> or <code>9443</code> if you want to use HTTP or HTTPS respectively. From here, you should be prompted to setup your admin credentials (if you are using Business Edition, you will be prompted for your license key first). </p>
+<p>Next, you will need to add your first environment. You can go ahead and select Docker and connect to the local Docker socket. If it worked correctly, you should see a Docker Environment labelled <em>local</em> on the Home tab:</p>
+<p><img src="/img/portainer-local-env.png" alt="portainer-local-env"></p>
+<p>If you already have other containers or docker-compose stacks in this instance, they should show up already (though they wont be able to be controlled by Portainer since docker-compose is the owner of those stacks). If everything shows up, then it should be installed and good to go!</p>
+<h3 id="connecting-additional-docker-hosts">Connecting Additional Docker Hosts</h3>
+<p>If you want to be able to deploy to and monitor additional Docker instances, then you will need to connect Portainer to that machine&rsquo;s Docker socket as well. There are a few ways to go about it, mainly exposing that socket to the network. _In this write-up, I took the least secure route because I wanted to get it running as soon as possible; however, I do <strong>NOT</strong> recommend doing it this way because it will openly expose your Docker socket to your network unauthenticated.I recommend reading up on the <a href="https://docs.docker.com/engine/security/protect-access/">Docker Wiki</a> for best practices. _</p>
+<p>We will be editing the Docker daemon to add a flag to expose the socket over TCP.</p>
+<ol>
+<li>Log into your machine</li>
+<li>Assuming you&rsquo;re using systemd to run Docker, modify <code>/etc/systemd/system/multi-user.target.wants/docker.service</code>.</li>
+<li>Add <code>-H tcp://0.0.0.0:2375</code> to the command in the <code>ExecStart</code> parameter under <code>[Service]</code> and save the file</li>
+<li>Reload the systemd daemon: <code>sudo systemctl daemon-reload</code></li>
+<li>Restart the Docker service: <code>sudo systemctl restart docker.service</code></li>
+</ol>
+<p>Here is what the service section for my Docker service looks like for reference:</p>
+<pre tabindex="0"><code>
+[Service]
+Type=notify
+# The default is not to use systemd for cgroups because the delegate issues still
+# exists and systemd currently does not support the cgroup feature set required
+# for containers run by docker
+ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375 --containerd=/run/containerd/containerd.sock
+ExecReload=/bin/kill -s HUP $MAINPID
+TimeoutSec=0
+RestartSec=2
+Restart=always
+</code></pre><p>You can verify that Docker came up properly via <code>systemctl status docker.service</code>, if you see <code>-H tcp://0.0.0.0:2375</code> in the <code>usr/bin/dockerd</code> command, then it should be working. </p>
+<p>From there, we can add the environment to Portainer: </p>
+<ol>
+<li>Select <em>Environments</em> on the side tab and <em>Add Environment</em>.  </li>
+<li>Select <em>Docker</em> for the Environment Type, and give it an appropriate name. </li>
+<li>Put the IP address of the docker host in <em>Environment URL</em> along with port <code>2375</code>: <code>10.0.5.253:2375</code> for example</li>
+<li>For <em>Public IP</em>, just put in the IP address of the host</li>
+<li>Click &lsquo;Add Environment&rsquo;</li>
+</ol>
+<p><img src="/img/portainer-add-env.png" alt="portainer-add-env"></p>
+<p>Repeat all these steps for any other host that you want to add, and they should appear in your Home tab just the same as your local environment:</p>
+<p><img src="/img/all-envs.png" alt="all-envs"></p>
+<h3 id="setting-up-a-portainer-stack">Setting up a Portainer Stack</h3>
+<p>Now, we can setup a docker stack using Portainer. </p>
+<ul>
+<li>To get started, go into the node you want to deploy to and head to Stacks and select <code>Add Stack</code>.</li>
+<li>For the Build Method, select <code>Repository</code>.</li>
+<li>Add the GitLab repo link under in <code>Repository URL</code></li>
+<li>For the repository reference, add the branch you would like to pull from. In my case, I want to pull from prod, so I would use: <code>refs/heads/prod</code></li>
+<li>If you need to authenticate to the git repo, enable Authentication and add your username and a Personal Access Token.</li>
+<li>If your Docker stack requires additional environment variables that can&rsquo;t go in your compose stack, you can either import them via a .env file or add them one by one under Environment Variables.</li>
+</ul>
+<p><img src="/img/add-stack.png" alt="add-stack.png"></p>
+<p>Once done, you can test a deployment and make sure that the stack downloads and deploys properly. Next, it is on to creating the webhooks.</p>
+<h3 id="setup-gitlab-webhooks">Setup GitLab Webhooks</h3>
+<p>Now that Portainer is setup locally, we can setup our repo&rsquo;s inside of GitLab to call Portainer WebHook&rsquo;s when we push to a branch. Note that you will need to expose the Portainer webhook url to the internet, or at least GitHub, to allow connections in. Once you have your git repo created with your docker compose file and any supporting config, you can get started by creating the webhook on Portainer. <a href="https://gitlab.com/dmarshall-homelab/docker/shlink">Here</a> is a basic example of one of my repo&rsquo;s for a link shortener I use. </p>
+<h4 id="creating-the-webhook-url">Creating the Webhook URL</h4>
+<ul>
+<li>Go into your stack config and edit the stack you deployed earlier.</li>
+<li>Check <code>Automatic Updates</code></li>
+<li>Set <code>Mechanism</code> to Webhook</li>
+<li>Enable <code>Force Redeployment</code> (This is the feature that was Business Edition only)</li>
+<li>Copy the webhook URL (Note that it uses the internal hostname of Portainer, so change the beginning URL to whatever domain you are using externally).</li>
+<li>Save Settings</li>
+</ul>
+<p><img src="/img/auto-updates.png" alt="auto-updates.png"></p>
+<h4 id="setup-webhook-events-in-gitlab">Setup Webhook Events in Gitlab</h4>
+<ul>
+<li>Go to Settings -&gt; Webhooks inside the repo</li>
+<li>For the URL - Put the publicly accessible webhook URL here</li>
+<li>Under Triggers: Make sure <code>push events</code> is selected and you put in the branch you want to cause triggers to the webhook, in my case I am using <code>prod</code></li>
+<li>Save Your settings</li>
+</ul>
+<p><img src="/img/webhook.png" alt="webhook.png"></p>
+<p>From here, you can use the &lsquo;Test&rsquo; button next to your webhook to verify that it works. You should see the portainer restart the container. At this point, whenever you push to the branch you specified, it should deploy your new configuration. </p>
+<hr>
+<h2 id="wrapping-up">Wrapping Up</h2>
+<p>After that, you are pretty much good to go! Changes to your compose stacks will be automatically deployed on pushes to the repo. You will still need to add stacks manually initially, but afterwards it is completely automated. Next, I will be working on interacting with the Portainer API to deploy these stacks automatically, so when I create a github repo, I can simply trigger some form of automation to create the stack on the Portainer itself. But that will be a future project. For now, I am happy with where I am at. I will surely make tweaks and improvements as I use it more.</p>
+<p>If anything didn&rsquo;t make sense, or if you have any questions, feel free to reach out to me and I would be happy to lend a hand!</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Configure Apple Magic Trackpad 2 Gestures on Manjaro KDE</title>
+            <link>http://dakotamarshall.net/posts/configure-apple-magic-trackpad-2-gestures-on-manjaro-kde/</link>
+            <pubDate>Wed, 10 Jun 2020 12:12:00 -0400</pubDate>
+            
+            <guid>http://dakotamarshall.net/posts/configure-apple-magic-trackpad-2-gestures-on-manjaro-kde/</guid>
+            <description>Intro I haven&amp;rsquo;t seen any full-length tutorials for getting the Apple Magic Trackpad 2, or really any multi-touch track-pad, working in Manjaro, or more specifically KDE, yet. So I figured I&amp;rsquo;d write down how I did it. Most of the info I got was from the libinput-gestures Github page if you would like to check it out. The device works out of the box with left, right, and middle-click as well as 2 finger scrolling.</description>
+            <content type="html"><![CDATA[<h3 id="intro">Intro</h3>
+<p>I haven&rsquo;t seen any full-length tutorials for getting the Apple Magic Trackpad 2, or really any multi-touch track-pad, working in Manjaro, or more specifically KDE, yet. So I figured I&rsquo;d write down how I did it. Most of the info I got was from the libinput-gestures <a href="https://github.com/bulletmark/libinput-gestures">Github page</a> if you would like to check it out. The device works out of the box with left, right, and middle-click as well as 2 finger scrolling. But to get the rest of the features you need to set a few things up. YMMV on whether or not everything in this works for you.</p>
+<hr>
+<h3 id="getting-started">Getting Started</h3>
+<p>The very first thing you should know is that for fully supported drivers you need to be on at least Linux version <em>4.20</em>, I am running on <em>5.4.43-1</em> which is Manjaro&rsquo;s LTS kernel release.</p>
+<p>Once you are on a kernel version that supports the Trackpad drivers, plug in the device and it should immediately start working for the most part. However, the multi-finger gestures do not work, as nothing is currently bound to them. For that, we need <em>libinput-gestures</em>. I&rsquo;ve seen a couple forum posts to suggest using other input libraries but the only one that works in this scenario I&rsquo;ve seen is libinput.</p>
+<p><code>sudo pacman -S libinput-gestures</code></p>
+<p>Go ahead and install <em>libinput-gestures</em>. The first thing we should do is add our user to the <em>input</em> group.</p>
+<p><code>sudo gpasswd -a $USER input</code></p>
+<p>Form there we can run the following commands:</p>
+<pre tabindex="0"><code>libinput-gestures-setup autostart  
+libinput-gestures-setup start  
+</code></pre><p>Alright awesome, now that its up and running we can go ahead and shut it back down and start building our config.</p>
+<p><code>libinput-gestures-setup stop</code></p>
+<p>Your config file exists in 2 places: <code>/etc/libinput-gestures.conf</code> and <code>~/.config/libinput-gestures.conf</code>. The former is for default gestures, all users on the system will share these gestures. The one in <em>.config</em> is personal to your user. I will be using the one in <em>.config</em> but it shouldn&rsquo;t matter.</p>
+<p><code>nano ~/.config/libinput-gestures.conf</code></p>
+<p>Here is a paste of my config file:</p>
+<pre tabindex="0"><code># Swipe threshold (0-100)  
+swipe_threshold 0  
+  
+# Gestures  
+gesture swipe up 3 konsole  
+gesture swipe down 3 xdotool key Super_L+Page_Down  
+gesture pinch out 3 xdotool key Ctrl+F9  
+gesture swipe right 3 xdotool key Ctrl+Shift+F2  
+gesture swipe left 3 xdotool key Ctrl+Shift+F1  
+</code></pre><p>The format for the gestures is pretty straight forward: <code>gesture</code> means just that, create a gesture. Then you define the gesture type. These can be <code>swipe</code> and <code>pinch</code>. Then specify the direction with <code>up</code> <code>down   </code> <code>left</code> and <code>right</code>. Next you define the number of fingers to perform the gesture with. I have not testedwith any more than 3 fingers for gestures, I would imagine 4 works though I dont know about 5 and above.<br>
+Finally you give it the command to run. For this I would suggest <em>xdotool</em> as you can pretty much do anything that the mouse and keyboard can do with that command. Mine just do keybinds though you can do some mo<br>
+re complex macro&rsquo;ing if youre into that sort of thing.</p>
+<p>Once you save your config file run:</p>
+<p><code>libinput-gestures-setup start</code></p>
+<p>Doing the defined gestures should run the command you specified. Should you notice that its not a quick way to ensure that libinput is running the command is to stop <em>libinput-gestures</em> again and then run:</p>
+<pre tabindex="0"><code>libinput-gestures -d  
+(Ctrl+C to stop)  
+</code></pre><p>This will show you the commands that would be ran once a recognizable gesture is detected. If all is good go ahead and start <em>libinput-gestures</em> again.</p>
+<h3 id="is-that-it">Is that it&hellip;?</h3>
+<p>Well yes, but actually no&hellip; At this point the track-pad will work and you can bind gestures to your hearts content. However, you&rsquo;ll soon notice that if you connect the track-pad through Bluetooth, and have to reconnect the track-pad, that gestures stop registering. The gestures will also stop working sometimes once waking from a lock or sleep.</p>
+<p>The only way to fix this is by restarting the gesture service. You can do this by hand, but using <em>dbus-action</em> is a more elegant solution. Here is how to set that up.</p>
+<hr>
+<h3 id="configuring-d-bus-action">Configuring D-Bus Action</h3>
+<p>First things first is to install <em>dbus-action</em>. This is something that needs to be installed from the AUR, so do that however you would install any other AUR package. For me I use pamac:</p>
+<p><code>sudo pamac build dbus-action</code></p>
+<p>Once built we can start configuring the service. At this point we need to use the following command to find the message that is displayed on the D-Bus whenever we connect our track-pad. Run:</p>
+<p><code>dbus-action -m all</code></p>
+<p>From there you an try connecting and disconnecting your track-pad a couple times to see if you are able to find the message. For me it was <code>workingTouchpadFoundChanged</code> on my desktop but my laptop actually showed <code>mousePluggedInChanged</code> so you will need to see which one appears for you:</p>
+<p><code>session org.kde.touchpad workingTouchpadFoundChanged: 1</code></p>
+<p>Now that we have that, we need to create the config file that will tell <em>dbus-action</em> to restart the gesture service once it detects a touchpad being plugged in. Create a file <code>~/.config/dus-action.conf</code> and paste the following:</p>
+<pre tabindex="0"><code>triggers:   
+ - bus: session  
+  interface: org.kde.touchpad  
+  member: workingTouchpadFoundChanged  
+  values:  
+   1: &#34;libinput-gestures-setup restart&#34;
+</code></pre><p>Save that and then we need to run the same steps for this as we did for <em>libinput-gestures-setup</em>:</p>
+<pre tabindex="0"><code>dbus-action-setup start
+dbus-action-setup autostart
+</code></pre><p>Once that is running it will begin restarting the service once it detects a track-pad has been plugged in. You can obviously test by re-plugging in your track-pad and ensure the gesture service restarts as expected. This should restart the gesture service when both plugged in via the lightning cable or when connected via Bluetooth.</p>
+<p>At this point your track-pad should be completely good to go! You can bind the track-pad to issue whatever commands you are looking for. I have had really good luck with the responsiveness of the gestures and scrolling on the touch-pad. This allowed me to bind several workflow shortcuts I normally use to the track-pad instead of relying on the shortcut only.</p>
+<p>If you feel like I missed anything or the setup didnt work for you, you can get in contact with me via my <a href="https://keybase.io/dmarshall549">Keybase</a>, email, or any of my attached accounts.</p>
 ]]></content>
         </item>
         

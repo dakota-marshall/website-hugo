@@ -1,9 +1,10 @@
 baseURL = "http://dakotamarshall.net/"
+staticDir = 'static'
 languageCode = "en-us"
 title = "Dakota Marshall"
 theme = "hello-friend-ng"
 paginate = 10
-copyright = "This work is licensed under a CC BY-NC-SA 4.0 International License."
+copyright = "Copyright 2021"
 publishdir = "docs/"
 
 [params]
@@ -13,14 +14,14 @@ publishdir = "docs/"
   dateformNumTime = "2006-01-02 15:04 -0700"
 
   # Subtitle for home
-  homeSubtitle = "RHCSA || Linux Admin || Network Engineer"
+  homeSubtitle = "RHCSA || Linux Administrator || Privacy Advocate"
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false
 
   # Metadata mostly used in document's head
-  description = "Dakota's Website"
-  keywords = "homepage, blog"
+  description = "Dakota Marshall || Linux Admin"
+  keywords = "homepage, blog, tech"
   images = [""]
 
   # Default theme "light" or "dark"
@@ -50,8 +51,12 @@ publishdir = "docs/"
   name = "github"
   url = "https://github.com/dakota-marshall"
 
+[[params.social]]
+  name = "gitlab"
+  url = "https://gitlab.com/dakota.marshall"
+
 [params.footer]
-copyright = true
+copyright = false
 rss = true
 
 [languages]

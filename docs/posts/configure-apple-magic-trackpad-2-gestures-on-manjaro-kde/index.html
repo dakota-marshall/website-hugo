@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="Intro I haven&amp;rsquo;t seen any full-length tutorials for getting the Apple Magic Trackpad 2, or really any multi-touch track-pad, working in Manjaro, or more specifically KDE, yet. So I figured I&amp;rsquo;d write down how I did it. Most of the info I got was from the libinput-gestures Github page if you would like to check it out. The device works out of the box with left, right, and middle-click as well as 2 finger scrolling." />
+<meta name="keywords" content="homepage, blog, tech, linux, kde, manjaro, Apple" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="http://dakotamarshall.net/posts/configure-apple-magic-trackpad-2-gestures-on-manjaro-kde/" />
+
+
+    <title>
+        
+            Configure Apple Magic Trackpad 2 Gestures on Manjaro KDE :: Dakota Marshall 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.031a8efc33f94f55a4071bf4e91596478a5809fc8c148fab113801189cfd2152.css">
+
+
+
+
+
+
+<meta itemprop="name" content="Configure Apple Magic Trackpad 2 Gestures on Manjaro KDE">
+<meta itemprop="description" content="Intro I haven&rsquo;t seen any full-length tutorials for getting the Apple Magic Trackpad 2, or really any multi-touch track-pad, working in Manjaro, or more specifically KDE, yet. So I figured I&rsquo;d write down how I did it. Most of the info I got was from the libinput-gestures Github page if you would like to check it out. The device works out of the box with left, right, and middle-click as well as 2 finger scrolling."><meta itemprop="datePublished" content="2020-06-10T12:12:00-04:00" />
+<meta itemprop="dateModified" content="2020-06-10T12:12:00-04:00" />
+<meta itemprop="wordCount" content="1011"><meta itemprop="image" content="http://dakotamarshall.net/"/>
+<meta itemprop="keywords" content="linux,kde,manjaro,Apple," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://dakotamarshall.net/"/>
+
+<meta name="twitter:title" content="Configure Apple Magic Trackpad 2 Gestures on Manjaro KDE"/>
+<meta name="twitter:description" content="Intro I haven&rsquo;t seen any full-length tutorials for getting the Apple Magic Trackpad 2, or really any multi-touch track-pad, working in Manjaro, or more specifically KDE, yet. So I figured I&rsquo;d write down how I did it. Most of the info I got was from the libinput-gestures Github page if you would like to check it out. The device works out of the box with left, right, and middle-click as well as 2 finger scrolling."/>
+
+
+
+
+    <meta property="og:title" content="Configure Apple Magic Trackpad 2 Gestures on Manjaro KDE" />
+<meta property="og:description" content="Intro I haven&rsquo;t seen any full-length tutorials for getting the Apple Magic Trackpad 2, or really any multi-touch track-pad, working in Manjaro, or more specifically KDE, yet. So I figured I&rsquo;d write down how I did it. Most of the info I got was from the libinput-gestures Github page if you would like to check it out. The device works out of the box with left, right, and middle-click as well as 2 finger scrolling." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://dakotamarshall.net/posts/configure-apple-magic-trackpad-2-gestures-on-manjaro-kde/" /><meta property="og:image" content="http://dakotamarshall.net/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-10T12:12:00-04:00" />
+<meta property="article:modified_time" content="2020-06-10T12:12:00-04:00" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2020-06-10 12:12:00 -0400 EDT" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/about-me">About Me</a></li><li><a href="/posts">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        5 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="http://dakotamarshall.net/posts/configure-apple-magic-trackpad-2-gestures-on-manjaro-kde/">Configure Apple Magic Trackpad 2 Gestures on Manjaro KDE</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <h3 id="intro">Intro</h3>
+<p>I haven&rsquo;t seen any full-length tutorials for getting the Apple Magic Trackpad 2, or really any multi-touch track-pad, working in Manjaro, or more specifically KDE, yet. So I figured I&rsquo;d write down how I did it. Most of the info I got was from the libinput-gestures <a href="https://github.com/bulletmark/libinput-gestures">Github page</a> if you would like to check it out. The device works out of the box with left, right, and middle-click as well as 2 finger scrolling. But to get the rest of the features you need to set a few things up. YMMV on whether or not everything in this works for you.</p>
+<hr>
+<h3 id="getting-started">Getting Started</h3>
+<p>The very first thing you should know is that for fully supported drivers you need to be on at least Linux version <em>4.20</em>, I am running on <em>5.4.43-1</em> which is Manjaro&rsquo;s LTS kernel release.</p>
+<p>Once you are on a kernel version that supports the Trackpad drivers, plug in the device and it should immediately start working for the most part. However, the multi-finger gestures do not work, as nothing is currently bound to them. For that, we need <em>libinput-gestures</em>. I&rsquo;ve seen a couple forum posts to suggest using other input libraries but the only one that works in this scenario I&rsquo;ve seen is libinput.</p>
+<p><code>sudo pacman -S libinput-gestures</code></p>
+<p>Go ahead and install <em>libinput-gestures</em>. The first thing we should do is add our user to the <em>input</em> group.</p>
+<p><code>sudo gpasswd -a $USER input</code></p>
+<p>Form there we can run the following commands:</p>
+<pre tabindex="0"><code>libinput-gestures-setup autostart  
+libinput-gestures-setup start  
+</code></pre><p>Alright awesome, now that its up and running we can go ahead and shut it back down and start building our config.</p>
+<p><code>libinput-gestures-setup stop</code></p>
+<p>Your config file exists in 2 places: <code>/etc/libinput-gestures.conf</code> and <code>~/.config/libinput-gestures.conf</code>. The former is for default gestures, all users on the system will share these gestures. The one in <em>.config</em> is personal to your user. I will be using the one in <em>.config</em> but it shouldn&rsquo;t matter.</p>
+<p><code>nano ~/.config/libinput-gestures.conf</code></p>
+<p>Here is a paste of my config file:</p>
+<pre tabindex="0"><code># Swipe threshold (0-100)  
+swipe_threshold 0  
+  
+# Gestures  
+gesture swipe up 3 konsole  
+gesture swipe down 3 xdotool key Super_L+Page_Down  
+gesture pinch out 3 xdotool key Ctrl+F9  
+gesture swipe right 3 xdotool key Ctrl+Shift+F2  
+gesture swipe left 3 xdotool key Ctrl+Shift+F1  
+</code></pre><p>The format for the gestures is pretty straight forward: <code>gesture</code> means just that, create a gesture. Then you define the gesture type. These can be <code>swipe</code> and <code>pinch</code>. Then specify the direction with <code>up</code> <code>down   </code> <code>left</code> and <code>right</code>. Next you define the number of fingers to perform the gesture with. I have not testedwith any more than 3 fingers for gestures, I would imagine 4 works though I dont know about 5 and above.<br>
+Finally you give it the command to run. For this I would suggest <em>xdotool</em> as you can pretty much do anything that the mouse and keyboard can do with that command. Mine just do keybinds though you can do some mo<br>
+re complex macro&rsquo;ing if youre into that sort of thing.</p>
+<p>Once you save your config file run:</p>
+<p><code>libinput-gestures-setup start</code></p>
+<p>Doing the defined gestures should run the command you specified. Should you notice that its not a quick way to ensure that libinput is running the command is to stop <em>libinput-gestures</em> again and then run:</p>
+<pre tabindex="0"><code>libinput-gestures -d  
+(Ctrl+C to stop)  
+</code></pre><p>This will show you the commands that would be ran once a recognizable gesture is detected. If all is good go ahead and start <em>libinput-gestures</em> again.</p>
+<h3 id="is-that-it">Is that it&hellip;?</h3>
+<p>Well yes, but actually no&hellip; At this point the track-pad will work and you can bind gestures to your hearts content. However, you&rsquo;ll soon notice that if you connect the track-pad through Bluetooth, and have to reconnect the track-pad, that gestures stop registering. The gestures will also stop working sometimes once waking from a lock or sleep.</p>
+<p>The only way to fix this is by restarting the gesture service. You can do this by hand, but using <em>dbus-action</em> is a more elegant solution. Here is how to set that up.</p>
+<hr>
+<h3 id="configuring-d-bus-action">Configuring D-Bus Action</h3>
+<p>First things first is to install <em>dbus-action</em>. This is something that needs to be installed from the AUR, so do that however you would install any other AUR package. For me I use pamac:</p>
+<p><code>sudo pamac build dbus-action</code></p>
+<p>Once built we can start configuring the service. At this point we need to use the following command to find the message that is displayed on the D-Bus whenever we connect our track-pad. Run:</p>
+<p><code>dbus-action -m all</code></p>
+<p>From there you an try connecting and disconnecting your track-pad a couple times to see if you are able to find the message. For me it was <code>workingTouchpadFoundChanged</code> on my desktop but my laptop actually showed <code>mousePluggedInChanged</code> so you will need to see which one appears for you:</p>
+<p><code>session org.kde.touchpad workingTouchpadFoundChanged: 1</code></p>
+<p>Now that we have that, we need to create the config file that will tell <em>dbus-action</em> to restart the gesture service once it detects a touchpad being plugged in. Create a file <code>~/.config/dus-action.conf</code> and paste the following:</p>
+<pre tabindex="0"><code>triggers:   
+ - bus: session  
+  interface: org.kde.touchpad  
+  member: workingTouchpadFoundChanged  
+  values:  
+   1: &#34;libinput-gestures-setup restart&#34;
+</code></pre><p>Save that and then we need to run the same steps for this as we did for <em>libinput-gestures-setup</em>:</p>
+<pre tabindex="0"><code>dbus-action-setup start
+dbus-action-setup autostart
+</code></pre><p>Once that is running it will begin restarting the service once it detects a track-pad has been plugged in. You can obviously test by re-plugging in your track-pad and ensure the gesture service restarts as expected. This should restart the gesture service when both plugged in via the lightning cable or when connected via Bluetooth.</p>
+<p>At this point your track-pad should be completely good to go! You can bind the track-pad to issue whatever commands you are looking for. I have had really good luck with the responsiveness of the gestures and scrolling on the touch-pad. This allowed me to bind several workflow shortcuts I normally use to the track-pad instead of relying on the shortcut only.</p>
+<p>If you feel like I missed anything or the setup didnt work for you, you can get in contact with me via my <a href="https://keybase.io/dmarshall549">Keybase</a>, email, or any of my attached accounts.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="http://dakotamarshall.net/tags/linux/">linux</a></span>
+        <span class="tag"><a href="http://dakotamarshall.net/tags/kde/">kde</a></span>
+        <span class="tag"><a href="http://dakotamarshall.net/tags/manjaro/">manjaro</a></span>
+        <span class="tag"><a href="http://dakotamarshall.net/tags/apple/">Apple</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1011 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2020-06-10 12:12 -0400
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="http://dakotamarshall.net/posts/creating-a-ci-cd-workflow-with-gitlab-and-portainer/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Creating A CI/CD Workflow With Gitlab and Portainer</span>
+                </a>
+            </span>
+            
+
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            
+            
+            
+            <span><a href="http://dakotamarshall.net/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.2d3d449fc0ff117f00ac91342a8f76cd5b710411d7a0254dbe75da3234d2f685d6a0c44cff60c414e90b6a149da8e4032c713c25e4e6838e2e3918dc0ad2e81c.js" integrity="sha512-LT1En8D/EX8ArJE0Ko92zVtxBBHXoCVNvnXaMjTS9oXWoMRM/2DEFOkLahSdqOQDLHE8JeTmg44uORjcCtLoHA=="></script>
+
+
+
+    </body>
+</html>
