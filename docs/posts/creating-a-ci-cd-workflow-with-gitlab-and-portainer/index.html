@@ -35,7 +35,7 @@
 <meta itemprop="name" content="Creating A CI/CD Workflow With Gitlab and Portainer">
 <meta itemprop="description" content="Table Of Contents  Backstory Overview Setting Everything Up  Install Portainer Connecting Additional Docker Hosts Setting up a Portainer Stack Setup GitLab Webhooks   Wrapping Up     Backstory Docker is awesome. It allows for easy deployment of apps that I or others have made. Docker Compose makes the deployment of container stacks even easier by allowing you to control the containers via a YAML file."><meta itemprop="datePublished" content="2022-04-18T09:29:19-04:00" />
 <meta itemprop="dateModified" content="2022-04-18T09:29:19-04:00" />
-<meta itemprop="wordCount" content="1841"><meta itemprop="image" content="http://dakotamarshall.net/"/>
+<meta itemprop="wordCount" content="1838"><meta itemprop="image" content="http://dakotamarshall.net/"/>
 <meta itemprop="keywords" content="gitlab,portainer,docker,cicd,linux," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://dakotamarshall.net/"/>
@@ -179,10 +179,12 @@
 <p><img src="/img/portainer-ci.png" alt="portainer-ci"></p>
 <p>Essentially, I can setup a git repo (in this case, I&rsquo;m using Gitlab) that holds the docker-compose file and any supporting config files to send a webhook call to Portainer whenever a push is made to the master branch. The webhook will trigger Portainer to pull the updated config files and re-deploy the stack. </p>
 <p>This workflow allows for plenty of CI testing inside of Gitlab using its runners to test images and config. For the time being, I won&rsquo;t be setting up that side, but will be sure to link to an update once I get this setup.</p>
-<p>Notes:
-    - I am assuming you have already written your docker-compose files and stored them in git.
-    - The same thing should work on Github, or any git server that supports webhooks, but in this case I am using Gitlab.
-    - Because I am using the SaaS version of Gitlab, I have to expose the Portainer service externally. I will be using Cloudflare for setup.</p>
+<p>Notes:</p>
+<ul>
+<li>I am assuming you have already written your docker-compose files and stored them in git.</li>
+<li>The same thing should work on Github, or any git server that supports webhooks, but in this case I am using Gitlab.</li>
+<li>Because I am using the SaaS version of Gitlab, I have to expose the Portainer service externally. I will be using Cloudflare for setup.</li>
+</ul>
 <hr>
 <h2 id="setting-everything-up">Setting Everything Up</h2>
 <h3 id="install-portainer">Install Portainer</h3>
@@ -304,7 +306,7 @@ Restart=always
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1841 Words
+        1838 Words
       </p>
 
       <p>

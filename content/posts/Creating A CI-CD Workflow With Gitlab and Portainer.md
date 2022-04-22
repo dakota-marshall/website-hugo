@@ -36,9 +36,9 @@ Essentially, I can setup a git repo (in this case, I'm using Gitlab) that holds 
 This workflow allows for plenty of CI testing inside of Gitlab using its runners to test images and config. For the time being, I won't be setting up that side, but will be sure to link to an update once I get this setup.
 
 Notes:
-    - I am assuming you have already written your docker-compose files and stored them in git.
-    - The same thing should work on Github, or any git server that supports webhooks, but in this case I am using Gitlab.
-    - Because I am using the SaaS version of Gitlab, I have to expose the Portainer service externally. I will be using Cloudflare for setup.
+- I am assuming you have already written your docker-compose files and stored them in git.
+- The same thing should work on Github, or any git server that supports webhooks, but in this case I am using Gitlab.
+- Because I am using the SaaS version of Gitlab, I have to expose the Portainer service externally. I will be using Cloudflare for setup.
 
 ---
 
