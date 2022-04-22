@@ -53,17 +53,11 @@ With that, there is actually an important distinction that you should be aware o
 I deployed Portainer on my Docker host using the following command:
 
 ```
-
 docker run -d -p 8000:8000 -p 9000:9000 -p 9443:9443 --name portainer \
-
 --restart=always \
-
 -v /var/run/docker.sock:/var/run/docker.sock \
-
 -v ~/portainer/portainer-config:/data \
-
 portainer/portainer-ce
-
 ```
 
 It is very important that you give Portainer access to `/var/run/docker.sock`, this is how Portainer will communicate with the Docker API. Without it, you will be unable to manage containers properly. _Note that in doing so, you are giving Portainer administrative access to all of your other containers, but most importantly, can give access to the host system as the Docker daemon runs as root. While Portainer is probably trustworthy, use your best judgment when granting access to this socket. More information can be found [here] (https://raesene.github.io/blog/2016/03/06/The-Dangers-Of-Docker.sock/).
