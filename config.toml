@@ -4,7 +4,7 @@ languageCode = "en-us"
 title = "Dakota Marshall"
 theme = "hello-friend-ng"
 paginate = 10
-copyright = "Copyright 2021"
+copyright = <a rel="me" href="https://noc.social/@diobolic"></a>
 publishdir = "docs/"
 
 [params]
