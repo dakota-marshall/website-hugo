@@ -45,7 +45,7 @@ publishdir = "docs/"
 
 [[params.social]]
   name = "mastodon"
-  url = "<a rel="me" href="https://noc.social/@diobolic"></a>"
+  url = "https://noc.social/@diobolic"
 
 [[params.social]]
   name = "email"
