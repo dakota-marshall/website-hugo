@@ -45,7 +45,7 @@ publishdir = "public/"
 
 [[params.social]]
   name = "mastodon"
-  url = "https://noc.social/@diobolic"
+  url = "https://calckey.social/@bonealisa"
 
 [[params.social]]
   name = "email"
