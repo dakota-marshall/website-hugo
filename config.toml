@@ -5,7 +5,7 @@ title = "Dakota Marshall"
 theme = "hello-friend-ng"
 paginate = 10
 copyright = "Copyright 2023"
-publishdir = "docs/"
+publishdir = "public/"
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -45,7 +45,7 @@ publishdir = "docs/"
 
 [[params.social]]
   name = "mastodon"
-  url = <a rel="me" href="https://calckey.social/@bonealisa"></a>
+  url = "https://calckey.social/@bonealisa"
 
 [[params.social]]
   name = "email"
