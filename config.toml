@@ -45,7 +45,7 @@ publishdir = "public/"
 
 [[params.social]]
   name = "mastodon"
-  url = "https://calckey.social/@bonealisa"
+  url = "https://firefish.social/@bonealisa"
 
 [[params.social]]
   name = "email"
