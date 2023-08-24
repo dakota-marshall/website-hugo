@@ -86,4 +86,9 @@ rss = true
     identifier = "About Me"
     name       = "About Me"
     url        = "/about-me"
+  
+  [[menu.main]]
+    identifier = "My Projects"
+    name       = "My Projects"
+    url        = "/projects"
 
