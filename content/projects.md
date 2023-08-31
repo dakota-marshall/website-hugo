@@ -11,12 +11,12 @@ Here a are a list of the projects I am working on!
 
 ## [OGS-Python](https://ogs-python.dakotamarshall.net/) 
 
-![GitLab last commit](https://img.shields.io/gitlab/last-commit/dakota.marshall%2Fogs-python)
+![GitLab last commit](https://img.shields.io/gitlab/last-commit/dakota.marshall%2Fogs-python) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![PyPI version](https://badge.fury.io/py/ogsapi.svg)](https://badge.fury.io/py/ogsapi)
 
 OGS Python is an API wrapper written in Python for the Go server I play on, [online-go.com](https://online-go.com). Its been a fun challenge in learning how to integrate with both a REST API, and a realtime Socket.IO API, and how to act as a middle-man between the client and server.
 
 ## [Heathcliff-RSS](https://gitlab.com/dakota.marshall/heathcliff-rss)
 
-![GitLab last commit](https://img.shields.io/gitlab/last-commit/dakota.marshall%2Fheathcliff-rss)
+![GitLab last commit](https://img.shields.io/gitlab/last-commit/dakota.marshall%2Fheathcliff-rss) [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
 This is an application I wrote to be able to get Heathcliff comics in my RSS feed. It was an interesting test project for learning how to use the Selenium library for interacting and scraping data from webpages, and how to deploy a python script as a full application.
