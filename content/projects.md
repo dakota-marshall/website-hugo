@@ -9,7 +9,15 @@ draft: false
 
 Here a are a list of the projects I am working on! 
 
-## [OGS-Python](https://ogs-python.dakotamarshall.net/) 
+## Art
+
+### [Blender Renders](https://pixelfed.social/c/627155609825384315)
+
+{{< pixelfediframe >}}
+
+## Coding
+
+### [OGS-Python](https://ogs-python.dakotamarshall.net/) 
 
 [![GitLab last commit](https://img.shields.io/gitlab/last-commit/dakota.marshall%2Fogs-python)](https://gitlab.com/dakota.marshall/ogs-python/-/commits/main) 
 
@@ -19,7 +27,7 @@ Here a are a list of the projects I am working on!
 
 OGS Python is an API wrapper written in Python for the Go server I play on, [online-go.com](https://online-go.com). Its been a fun challenge in learning how to integrate with both a REST API, and a realtime Socket.IO API, and how to act as a middle-man between the client and server.
 
-## [Heathcliff-RSS](https://gitlab.com/dakota.marshall/heathcliff-rss)
+### [Heathcliff-RSS](https://gitlab.com/dakota.marshall/heathcliff-rss)
 
 [![GitLab last commit](https://img.shields.io/gitlab/last-commit/dakota.marshall%2Fheathcliff-rss)](https://gitlab.com/dakota.marshall/heathcliff-rss/-/commits/main) 
 

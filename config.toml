@@ -4,7 +4,7 @@ languageCode = "en-us"
 title = "Dakota Marshall"
 theme = "hello-friend-ng"
 paginate = 10
-copyright = "Copyright 2023"
+copyright = "Copyright 2024"
 publishdir = "public/"
 
 [params]
@@ -45,7 +45,11 @@ publishdir = "public/"
 
 [[params.social]]
   name = "mastodon"
-  url = "https://firefish.social/@bonealisa"
+  url = "https://infosec.town/@bonealisa"
+
+[[params.social]]
+  name = "pixelfed"
+  url = "https://pixelfed.social/@bonealisa"
 
 [[params.social]]
   name = "email"
