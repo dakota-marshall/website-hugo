@@ -4,7 +4,7 @@ date: 2021-08-10T11:40:19-04:00
 draft: false
 ---
 
-I'm a Linux Enthusiast that is currently working as a Systems Administrator at Datayard. I've been using and tinkering with Linux for around 5 years at this point, both professionally and in my free time. 
+I'm a Linux Enthusiast that is currently working as a Linux Infrastructure Engineer. I've been using and tinkering with Linux for around 6 years at this point, both professionally and in my free time. 
 
 Over the past few years, I have been growing and fine-tuning a home lab I use as a means of learning new things and experimenting with technology that interests me. I consider it an invaluable tool and has accounted for a large portion of my interest and technical ability. vSphere, Docker, Ansible, Linux, git, Python, most of what I know I was able to practice by spending countless nights deep in the terminals of my homelab.
 
