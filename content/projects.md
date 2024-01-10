@@ -34,3 +34,8 @@ OGS Python is an API wrapper written in Python for the Go server I play on, [onl
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
 This is an application I wrote to be able to get Heathcliff comics in my RSS feed. It was an interesting test project for learning how to use the Selenium library for interacting and scraping data from webpages, and how to deploy a python script as a full application.
+
+### [AutoClicker](https://github.com/dakota-marshall/autoclicker)
+
+[![GitLab last commit](https://img.shields.io/gitlab/last-commit/dakota.marshall%2Fautoclicker)](https://gitlab.com/dakota.marshall/autoclicker/-/commits/main)
+[![made-with-go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev/) 
