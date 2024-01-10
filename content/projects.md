@@ -40,3 +40,5 @@ This is an application I wrote to be able to get Heathcliff comics in my RSS fee
 [![GitLab last commit](https://img.shields.io/gitlab/last-commit/dakota.marshall%2Fautoclicker)](https://gitlab.com/dakota.marshall/autoclicker/-/commits/main)
 
 [![made-with-go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev/) 
+
+Just a simple autoclicker I wrote in Go. I originally wrote this for a friend in Python, but wanted to practice making a real package in Go, so I converted it. I added a GUI using the Fyne toolkit, and used robotogo for the keyboard event handling.
