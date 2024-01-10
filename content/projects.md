@@ -38,4 +38,5 @@ This is an application I wrote to be able to get Heathcliff comics in my RSS fee
 ### [AutoClicker](https://github.com/dakota-marshall/autoclicker)
 
 [![GitLab last commit](https://img.shields.io/gitlab/last-commit/dakota.marshall%2Fautoclicker)](https://gitlab.com/dakota.marshall/autoclicker/-/commits/main)
+
 [![made-with-go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev/) 
